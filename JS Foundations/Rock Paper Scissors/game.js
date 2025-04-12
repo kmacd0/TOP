@@ -4,12 +4,10 @@ function getComputerChoice() {
     else if (v === 1) return "paper";
     return "scissors";
 }
-const computerChoice = getComputerChoice();
 
 function getHumanChoice() {
     return prompt("Choose rock, paper, or scissors").toLowerCase();
 }
-const humanChoice = getHumanChoice();
 
 let humanScore = 0;
 let computerScore = 0;
@@ -26,12 +24,38 @@ function playRound(humanChoice, computerChoice) {
     ) {
         return console.log(
             `You chose ${humanChoice} against ${computerChoice}. You win.`,
+            humanScore++,
         );
     } else {
         return console.log(
             `You chose ${humanChoice} against ${computerChoice}. Computer wins.`,
+            computerScore++,
         );
     }
 }
 
-playRound(humanChoice, computerChoice);
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        const computerChoice = getComputerChoice();
+        const humanChoice = getHumanChoice();
+        playRound(humanChoice, computerChoice);
+        console.log(
+            `Round ${
+                i + 1
+            } of 5\nYou: ${humanScore} Computer: ${computerScore}`,
+        );
+    }
+    compareScores();
+}
+
+function compareScores() {
+    if (humanScore > computerScore) {
+        console.log("Congratulations, you won!");
+    } else if (humanScore < computerScore) {
+        console.log("Computer wins.");
+    } else if (humanScore === computerScore) {
+        console.log("Game draw.");
+    }
+}
+
+playGame();
