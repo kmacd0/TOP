@@ -69,6 +69,23 @@ function determineLeapYear(year) {
   }
 }
 
-console.log(determineLeapYear(2000));
-console.log(determineLeapYear(1985));
-console.log(determineLeapYear(1600));
+// console.log(determineLeapYear(2000));
+// console.log(determineLeapYear(1985));
+// console.log(determineLeapYear(1600));
+
+// Exercise 07 - Create two functions to convert to Fahrenheit/Celsius, vice versa, rounded to 1 decimal
+
+function fahrenheitToCelsius(fTemp) {
+  celsiusTemp = (fTemp - 32) / (9 / 5);
+  roundedCelsiusTemp = Math.round(celsiusTemp * 10) / 10;
+  return roundedCelsiusTemp;
+}
+
+function celsiusToFahrenheit(cTemp) {
+  fahrenheitTemp = (cTemp * 9) / 5 + 32;
+  roundedFahrenheitTemp = Math.round(fahrenheitTemp * 10) / 10;
+  return roundedFahrenheitTemp;
+}
+
+// console.log(fahrenheitToCelsius(64)); // Should return 17.8
+// console.log(celsiusToFahrenheit(17)); // Should return 62.6
