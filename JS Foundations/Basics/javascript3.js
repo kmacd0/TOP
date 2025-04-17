@@ -55,4 +55,20 @@ function sumAll(num1, num2) {
   return steps;
 }
 
-console.log(sumAll(1, 8));
+// console.log(sumAll(1, 8));
+
+/** Exercise 06 - Create a function determineLeapYear to determine if a year is a leap year or not
+ *  Leap years = divisible by 4, and not divisible by 100, unless divisible by 400
+ */
+
+function determineLeapYear(year) {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    return `${year} is a leap year.`;
+  } else {
+    return `${year} is not a leap year.`;
+  }
+}
+
+console.log(determineLeapYear(2000));
+console.log(determineLeapYear(1985));
+console.log(determineLeapYear(1600));
