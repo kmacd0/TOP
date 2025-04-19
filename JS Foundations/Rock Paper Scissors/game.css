@@ -1,3 +1,18 @@
+html,
+body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
 .select-actions {
     display: flex;
     flex-direction: row;
@@ -5,7 +20,7 @@
 
 .select-actions > button {
     width: 100px;
-    margin: 10px;
+    margin: 15px;
     text-align: center;
     line-height: 75px;
     color: white;
@@ -15,14 +30,35 @@
 body {
     background-color: #35374b;
 }
-.score {
+
+.gameStats {
     display: flex;
     flex-direction: row;
 }
 
-.score > div {
+.gameStats > span {
     margin: 10px;
     width: 100px;
     color: white;
     background-color: #344955;
+}
+
+#computerScore {
+    width: 130px;
+}
+
+.result {
+    display: flex;
+    flex-direction: row;
+}
+
+.result > span {
+    margin: 10px;
+    width: 100px;
+    color: white;
+    background-color: #344955;
+}
+
+#roundResult {
+    width: 325px;
 }
