@@ -1,0 +1,28 @@
+.select-actions {
+    display: flex;
+    flex-direction: row;
+}
+
+.select-actions > button {
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    color: white;
+    background-color: #344955;
+}
+
+body {
+    background-color: #35374b;
+}
+.score {
+    display: flex;
+    flex-direction: row;
+}
+
+.score > div {
+    margin: 10px;
+    width: 100px;
+    color: white;
+    background-color: #344955;
+}
