@@ -1,3 +1,18 @@
+html,
+body {
+  height: 100%;
+}
+
+html {
+  display: table;
+  margin: auto;
+}
+
+body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 #container {
   display: flex;
   flex-wrap: wrap;
@@ -7,6 +22,6 @@
 }
 
 .tile {
-  border: 1px solid #0000001f;
+  /*  border: 1px solid #000000;*/
   box-sizing: border-box;
 }
