@@ -13,6 +13,42 @@ body {
   vertical-align: middle;
 }
 
+button {
+  margin-bottom: 20px;
+  margin-right: 10px;
+  border: solid 3px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#gridSizeBtn:hover {
+  background-color: grey;
+}
+
+#clearGridBtn:hover {
+  background-color: grey;
+}
+
+#redBtn:hover {
+  background-color: indianred;
+  color: white;
+}
+
+#greenBtn:hover {
+  background-color: forestgreen;
+  color: white;
+}
+
+#blueBtn:hover {
+  background-color: dodgerblue;
+  color: white;
+}
+
+#yellowBtn:hover {
+  background-color: khaki;
+  color: white;
+}
+
 #container {
   display: flex;
   flex-wrap: wrap;
