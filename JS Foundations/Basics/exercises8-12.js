@@ -49,6 +49,21 @@ console.log(`Factorial of number (6): ${getFactorial(6)}`);
  * (A string which is spelled the same both forwards and backwards)
  */
 
+function isPalindrome(str) {
+  let reversedArray = [...str].reverse();
+  let reversedString = reversedArray.join("");
+
+  if (reversedString === str) {
+    return `Standard: ${str}\nReversed: ${reversedString}\n${str} is a palindrome.`;
+  } else {
+    return `Standard: ${str}\nReversed: ${reversedString}\n${str} is not a palindrome.`;
+  }
+}
+console.log(isPalindrome("swag"));
+console.log(isPalindrome("racecar"));
+console.log(isPalindrome("Lid off a daffodil"));
+// need to create it as a single joined string
+
 /**
  * Exercise 10 - Create a function to return a specific member of Fibonacci sequence
  * (A series of numbers in which each number is the sum of the two preceding ones).
