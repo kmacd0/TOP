@@ -50,13 +50,14 @@ console.log(`Factorial of number (6): ${getFactorial(6)}`);
  */
 
 function isPalindrome(str) {
-  let reversedArray = [...str].reverse();
-  let reversedString = reversedArray.join("");
+  let formatString = str.replace(/ /g, "").toLowerCase();
+  let reversedString = [...formatString].reverse().join("");
+  console.log(reversedString);
 
-  if (reversedString === str) {
-    return `Standard: ${str}\nReversed: ${reversedString}\n${str} is a palindrome.`;
+  if (reversedString === formatString) {
+    return `Standard: ${formatString}\nReversed: ${reversedString}\n${str} is a palindrome.`;
   } else {
-    return `Standard: ${str}\nReversed: ${reversedString}\n${str} is not a palindrome.`;
+    return `Standard: ${formatString}\nReversed: ${reversedString}\n${str} is not a palindrome.`;
   }
 }
 console.log(isPalindrome("swag"));
