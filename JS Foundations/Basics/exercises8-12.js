@@ -63,7 +63,6 @@ function isPalindrome(str) {
 console.log(isPalindrome("swag"));
 console.log(isPalindrome("racecar"));
 console.log(isPalindrome("Lid off a daffodil"));
-// need to create it as a single joined string
 
 /**
  * Exercise 10 - Create a function to return a specific member of Fibonacci sequence
@@ -78,7 +77,22 @@ console.log(isPalindrome("Lid off a daffodil"));
  * Hint: built-in javascript method will do most of the work
  */
 
+const books = [
+  {
+    title: "Book",
+    author: "John",
+  },
+  {
+    title: "Book2",
+    author: "Schlawg",
+  },
+];
+
+const getBookTitles = () => books.map((item) => item.title);
+console.log(getBookTitles(books));
+
 /**
  * Exercise 12 - Given an array of objects representing people with a birth and death year,
  * return the oldest person. Return the whole person object. Many solutions such as reduce.
+ * Create a check for people with no death date to get their age as of today.
  */
