@@ -3,9 +3,7 @@
  * add, subtract, gets sum, multiply, get the power, and find the factorial
  */
 
-const addNum = (a, b) => {
-  return a + b;
-};
+const addNum = (a, b) => a + b;
 
 console.log(`Addition of numbers (2,4): ${addNum(2, 4)}`);
 
@@ -16,7 +14,7 @@ const subtractNum = (a, b) => {
 console.log(`Subtraction of numbers (2,4): ${subtractNum(2, 4)}`);
 
 const getSum = (array) => {
-  return (result = array.reduce((a, b) => a + b, 0));
+  return array.reduce((a, b) => a + b, 0);
 };
 
 console.log(`Sum of array [1, 2, 3, 4, 5, 6]: ${getSum([1, 2, 3, 4, 5, 6])}`);
@@ -28,18 +26,19 @@ const getPower = (num, power) => {
     result *= num;
     // console.log(result);
   }
+
   return result;
 };
 
 console.log(`Power of number (2^8): ${getPower(2, 8)}`);
 
 const getFactorial = (num) => {
-  let array = [];
+  const array = [];
   for (let i = 1; i <= num; i++) {
     array.push(i);
   }
-  array = array.reduce((a, b) => a * b, 1);
-  return array;
+  const raisedToPower = array.reduce((acc, v) => acc * v, 1);
+  return raisedToPower;
 };
 
 console.log(`Factorial of number (6): ${getFactorial(6)}`);
@@ -96,3 +95,42 @@ console.log(getBookTitles(books));
  * return the oldest person. Return the whole person object. Many solutions such as reduce.
  * Create a check for people with no death date to get their age as of today.
  */
+
+const people = [
+  {
+    name: "John",
+    birthYear: "1942",
+    deathYear: "1970",
+  },
+  {
+    name: "Elizabeth",
+    birthYear: "1962",
+    deathYear: "2011",
+  },
+  {
+    name: "Lane",
+    birthYear: "2001",
+  },
+];
+
+function getAge(birthYear, deathYear = new Date().getFullYear()) {
+  return deathYear - birthYear;
+}
+
+function getOldestPerson(people) {
+  return people.reduce((oldest, person) => {
+    const currentAge = getAge(person.birthYear, person.deathYear);
+    const oldestAge = getAge(oldest.birthYear, oldest.deathYear);
+
+    if (currentAge > oldestAge) {
+      return person;
+    } else {
+      return oldest;
+    }
+  }, people[0]);
+}
+
+console.log(getOldestPerson(people));
+// John = 28
+// Elizabth = 49
+// Lane = 24
