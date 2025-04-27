@@ -96,7 +96,7 @@ console.log(getBookTitles(books));
  * Create a check for people with no death date to get their age as of today.
  */
 
-const people = [
+const persons = [
   {
     name: "John",
     birthYear: "1942",
@@ -113,24 +113,33 @@ const people = [
   },
 ];
 
+/**
+ *
+ * @param {string} birthYear
+ * @param {string} deathYear
+ * @returns
+ */
 function getAge(birthYear, deathYear = new Date().getFullYear()) {
-  return deathYear - birthYear;
+  return Number.parseInt(deathYear) - Number.parseInt(birthYear);
 }
 
-function getOldestPerson(people) {
-  return people.reduce((oldest, person) => {
-    const currentAge = getAge(person.birthYear, person.deathYear);
-    const oldestAge = getAge(oldest.birthYear, oldest.deathYear);
-
-    if (currentAge > oldestAge) {
-      return person;
-    } else {
-      return oldest;
-    }
-  }, people[0]);
+function getOldestPerson(persons) {
+  return persons.reduce((acc, p) => {
+    const pAge = getAge(p.birthYear, p.deathYear);
+    const accAge = getAge(acc.birthYear, acc.deathYear);
+    return pAge > accAge ? p : acc;
+  }, persons[0]);
 }
 
-console.log(getOldestPerson(people));
+function getOldestPerson2(persons) {
+  return persons.sort(
+    (prevP, nextP) =>
+      getAge(nextP.birthYear, nextP.deathYear) -
+      getAge(prevP.birthYear, prevP.deathYear)
+  )[0];
+}
+
+console.log(getOldestPerson(persons));
 // John = 28
 // Elizabth = 49
 // Lane = 24
