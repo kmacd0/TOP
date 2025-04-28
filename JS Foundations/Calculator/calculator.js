@@ -20,7 +20,24 @@ const subtractNums = (a, b) => a - b;
 const multiplyNums = (a, b) => a * b;
 const divideNums = (a, b) => a / b;
 
-console.log(addNums(2, 2));
-console.log(subtractNums(4, 2));
-console.log(multiplyNums(4, 8));
-console.log(divideNums(10, 5));
+const numberBtns = document.querySelectorAll(".number");
+const operandBtns = document.querySelectorAll(".operand");
+
+numberBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    const buttonValue = button.textContent;
+    console.log(buttonValue);
+  });
+});
+
+operandBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    const operandValue = button.textContent;
+    console.log(operandValue);
+  });
+});
+
+// function to add the same onclick to every button
+// onclick equals the value of the button
+// once an operand button is clicked, store the first value as firstNum
+// and start the secondNum
