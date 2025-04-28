@@ -1,17 +1,19 @@
-let firstNum = 0;
+let operandOne = "";
+let operandTwo = "";
 let operator = "";
-let secondNum = 0;
 
-function operate(firstNum, operator, secondNum) {
+function operate(operandOne, operator, operandTwo) {
   switch (operator) {
     case "+":
-      return addNums(firstNum, secondNum);
+      return addNums(operandOne, operandTwo);
     case "-":
-      return subtractNums(firstNum, secondNum);
+      return subtractNums(operandOne, operandTwo);
     case "*":
-      return multiplyNums(firstNum, secondNum);
+      return multiplyNums(operandOne, operandTwo);
     case "/":
-      return divideNums(firstNum, secondNum);
+      return divideNums(operandOne, operandTwo);
+    default:
+      return "Error";
   }
 }
 
@@ -21,23 +23,41 @@ const multiplyNums = (a, b) => a * b;
 const divideNums = (a, b) => a / b;
 
 const numberBtns = document.querySelectorAll(".number");
-const operandBtns = document.querySelectorAll(".operand");
+const operatorBtns = document.querySelectorAll(".operator");
+const resultArea = document.querySelector(".result");
+const equalBtn = document.querySelector("#equalBtn");
 
 numberBtns.forEach((button) => {
   button.addEventListener("click", () => {
     const buttonValue = button.textContent;
-    console.log(buttonValue);
+    if (isOperatorClicked()) {
+      operandTwo += buttonValue;
+    } else {
+      operandOne += buttonValue;
+    }
+    resultArea.innerHTML += buttonValue;
   });
 });
 
-operandBtns.forEach((button) => {
+operatorBtns.forEach((button) => {
   button.addEventListener("click", () => {
-    const operandValue = button.textContent;
-    console.log(operandValue);
+    const operatorValue = button.textContent;
+    resultArea.innerHTML += operatorValue;
+    operator = operatorValue;
   });
 });
 
-// function to add the same onclick to every button
-// onclick equals the value of the button
-// once an operand button is clicked, store the first value as firstNum
-// and start the secondNum
+const isOperatorClicked = () => operator !== "";
+
+equalBtn.onclick = function () {
+  if (operandOne && operator && operandTwo) {
+    const result = operate(
+      parseFloat(operandOne),
+      operator,
+      parseFloat(operandTwo)
+    );
+    resultArea.innerHTML = result;
+    console.log(operandOne, operator, operandTwo);
+    console.log(result);
+  }
+};
