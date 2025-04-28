@@ -26,6 +26,7 @@ const numberBtns = document.querySelectorAll(".number");
 const operatorBtns = document.querySelectorAll(".operator");
 const resultArea = document.querySelector(".result");
 const equalBtn = document.querySelector("#equalBtn");
+const clearBtn = document.querySelector("#clearBtn");
 
 numberBtns.forEach((button) => {
   button.addEventListener("click", () => {
@@ -47,17 +48,30 @@ operatorBtns.forEach((button) => {
   });
 });
 
-const isOperatorClicked = () => operator !== "";
-
 equalBtn.onclick = function () {
   if (operandOne && operator && operandTwo) {
-    const result = operate(
+    let result = operate(
       parseFloat(operandOne),
       operator,
       parseFloat(operandTwo)
     );
     resultArea.innerHTML = result;
-    console.log(operandOne, operator, operandTwo);
     console.log(result);
+    console.log(operandOne, operator, operandTwo);
+
+    operandOne = result.toString();
+    operandTwo = "";
+    operator = "";
   }
 };
+
+clearBtn.onclick = function () {
+  resultArea.innerHTML = "";
+  operandOne = "";
+  operandTwo = "";
+  operator = "";
+};
+
+const isOperatorClicked = () => operator !== "";
+
+// update for decimals
