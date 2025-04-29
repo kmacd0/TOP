@@ -45,6 +45,8 @@ operatorBtns.forEach((button) => {
     const operatorValue = button.textContent;
     resultArea.innerHTML += operatorValue;
     operator = operatorValue;
+
+    operatorBtns.forEach((opBtn) => (opBtn.disabled = true));
   });
 });
 
@@ -62,11 +64,13 @@ equalBtn.onclick = function () {
     operandOne = result.toString();
     operandTwo = "";
     operator = "";
+
+    operatorBtns.forEach((opBtn) => (opBtn.disabled = false));
   }
 };
 
 clearBtn.onclick = function () {
-  resultArea.innerHTML = "";
+  resultArea.innerHTML = "&nbsp;";
   operandOne = "";
   operandTwo = "";
   operator = "";

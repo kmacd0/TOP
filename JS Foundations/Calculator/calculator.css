@@ -20,9 +20,20 @@
 
 .container > button {
   background-color: lightsteelblue;
+  opacity: 1;
   padding: 20px;
   font-size: 30px;
   width: calc(25%);
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #6d7c8f;
+  opacity: 1;
+}
+
+button:disabled {
+  background-color: rgb(196, 110, 110);
 }
 
 .container > button:first-child {
