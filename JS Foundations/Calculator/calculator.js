@@ -11,6 +11,10 @@ function operate(operandOne, operator, operandTwo) {
     case "*":
       return multiplyNums(operandOne, operandTwo);
     case "/":
+      if (operandTwo === 0) {
+        resultArea.innerHTML = "Cannot divide by zero";
+        return "Error";
+      }
       return divideNums(operandOne, operandTwo);
     default:
       return "Error";
@@ -79,6 +83,8 @@ equalBtn.onclick = function () {
       parseFloat(operandTwo)
     );
 
+    if (result === "Error") return;
+
     result = Math.round((result + Number.EPSILON) * 100) / 100;
     resultArea.innerHTML = result;
 
@@ -98,10 +104,7 @@ clearBtn.onclick = function () {
   operandOne = "";
   operandTwo = "";
   operator = "";
+  operatorBtns.forEach((opBtn) => (opBtn.disabled = false));
 };
 
 const isOperatorClicked = () => operator !== "";
-
-// round answers with long decimals
-// error handling for divide by 0
-// add functionality to decimal
