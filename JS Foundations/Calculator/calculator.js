@@ -27,19 +27,40 @@ const operatorBtns = document.querySelectorAll(".operator");
 const resultArea = document.querySelector(".result");
 const equalBtn = document.querySelector("#equalBtn");
 const clearBtn = document.querySelector("#clearBtn");
+const decimalBtn = document.querySelector("#decimalBtn");
 
+// Number value from buttons & operandTwo+One separation
 numberBtns.forEach((button) => {
   button.addEventListener("click", () => {
-    const buttonValue = button.textContent;
+    const numberValue = button.textContent;
     if (isOperatorClicked()) {
-      operandTwo += buttonValue;
+      operandTwo += numberValue;
+      console.log(`Operand Two: ${operandTwo}`);
     } else {
-      operandOne += buttonValue;
+      operandOne += numberValue;
+      console.log(`Operand One: ${operandOne}`);
     }
-    resultArea.innerHTML += buttonValue;
+    resultArea.innerHTML += numberValue;
   });
 });
 
+// Decimal value & appending to operand values
+decimalBtn.onclick = function () {
+  const decimalValue = decimalBtn.textContent;
+  if (isOperatorClicked()) {
+    if (!operandTwo.includes(".")) {
+      operandTwo += ".";
+      resultArea.innerHTML += decimalValue;
+    }
+  } else {
+    if (!operandOne.includes(".")) {
+      operandOne += ".";
+      resultArea.innerHTML += decimalValue;
+    }
+  }
+};
+
+// Operator button & disabling when pressed
 operatorBtns.forEach((button) => {
   button.addEventListener("click", () => {
     const operatorValue = button.textContent;
@@ -57,9 +78,12 @@ equalBtn.onclick = function () {
       operator,
       parseFloat(operandTwo)
     );
+
+    result = Math.round((result + Number.EPSILON) * 100) / 100;
     resultArea.innerHTML = result;
-    console.log(result);
+
     console.log(operandOne, operator, operandTwo);
+    console.log(result);
 
     operandOne = result.toString();
     operandTwo = "";
@@ -78,4 +102,6 @@ clearBtn.onclick = function () {
 
 const isOperatorClicked = () => operator !== "";
 
-// update for decimals
+// round answers with long decimals
+// error handling for divide by 0
+// add functionality to decimal
