@@ -1,0 +1,93 @@
+@font-face {
+  font-family: odinFont;
+  src: url(./assets/Norse-Bold.otf);
+}
+
+body {
+  margin: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+#container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+#side {
+  background-image: url("./assets/halie-west-25xggax4bSA-unsplash.jpg");
+  background-size: 100%;
+  width: 40%;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  background-color: #fffdf6;
+  width: 60%;
+}
+
+#header {
+  padding: 50px;
+  padding-top: 100px;
+  width: 60%;
+}
+
+#middle {
+  padding-left: 50px;
+  padding-bottom: 50px;
+  background-color: #faf6e9;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 40px;
+}
+
+#footer {
+  padding-left: 50px;
+}
+
+#form {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  font-family: monospace;
+  font-size: 18px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  margin-bottom: 30px;
+  background-color: #596d48;
+  color: white;
+  padding: 15px;
+  width: 240px;
+  border-radius: 12px;
+  border: none;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#banner {
+  margin-top: 40%;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 128px;
+  font-family: odinFont, "Times New Roman", Times, serif;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.452);
+}
+
+#banner img {
+  height: 150px;
+  width: auto;
+}
