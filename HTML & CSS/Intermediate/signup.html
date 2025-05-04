@@ -12,12 +12,20 @@
     <div id="container">
       <div id="side">
         <div id="banner">
-          <img
-            src="./assets/odin-lined.png"
-            width="150px"
-            height="=150px"
-            alt="Odin Project logo"
-          />Odin
+          <img src="./assets/odin-lined.png" alt="Odin Project logo" />Odin
+        </div>
+        <div id="credit">
+          Photo by
+          <a
+            href="https://unsplash.com/@haliewestphoto"
+            target="_blank"
+            alt="Halie West photos"
+            >Halie West</a
+          >
+          on
+          <a href="https://unsplash.com/" target="_blank" alt="Unsplash website"
+            >Unsplash</a
+          >
         </div>
       </div>
       <div id="main">
@@ -33,24 +41,30 @@
           <form id="form">
             <div class="column">
               <label for="fname">FIRST NAME</label>
-              <input type="text" id="fname" name="fname" />
+              <input type="text" id="fname" name="fname" required />
               <label for="email">EMAIL</label>
-              <input type="email" id="email" name="email" />
+              <input type="email" id="email" name="email" required />
               <label for="password">PASSWORD</label>
-              <input type="password" id="password" name="password" />
+              <input type="password" id="password" name="password" required />
             </div>
             <div class="column">
               <label for="lname">LAST NAME</label>
-              <input type="text" id="lname" name="lname" />
+              <input type="text" id="lname" name="lname" required />
               <label for="phone">PHONE</label>
               <input type="tel" id="phone" name="phone" />
               <label for="vpassword">PASSWORD</label>
-              <input type="password" id="vpassword" name="vpassword" />
+              <input type="password" id="vpassword" name="vpassword" required />
             </div>
           </form>
         </div>
         <footer id="footer">
-          <button>Create Account</button><br />Already have an account? Log in
+          <button>Create Account</button><br />Already have an account?
+          <a
+            id="login"
+            href="https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-sign-up-form"
+            target="_blank"
+            >Log in</a
+          >
         </footer>
       </div>
     </div>
