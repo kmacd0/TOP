@@ -1,36 +1,119 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body {
   height: 100%;
-  margin: 0;
 }
 
-.container {
+#container {
   display: grid;
   grid-template-columns: 350px 4fr;
-  grid-template-rows: 150px 4fr;
+  grid-template-rows: auto 1fr;
   height: 100vh;
-  background-color: lightgray;
 }
 
-.sidebar {
+/** Sidebar elements */
+aside {
+  display: grid;
+  grid-template-rows: 150px 2fr 2fr;
   background-color: dodgerblue;
   color: white;
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
+  grid-area: 1 / 1 / 3 / 2;
   height: 100%;
+  padding-left: 25px;
+  font-size: 26px;
 }
 
-.header {
-  background-color: maroon;
+#side-top {
+  margin-top: 24px;
+}
+
+#side-top svg {
+  height: 60px;
+}
+
+aside svg {
+  height: 30px;
+  width: auto;
+}
+
+aside a {
+  text-decoration: none;
   color: white;
-  grid-column: 1 / 3;
-  grid-row: 1 / 2;
-  height: 100%;
 }
 
-.main {
-  background-color: rgb(31, 72, 73);
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 16px;
+}
+
+/** Header elements */
+header {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  padding: 16px 0px 16px 48px; //** 1fr 1fr*/
+}
+
+#head-search,
+#head-notifications {
+  display: flex;
+  align-items: center;
+  padding-bottom: 16px;
+  gap: 16px;
+}
+
+#head-search input {
+  width: 500px;
+  height: 28px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgba(211, 211, 211, 0.5);
+}
+
+#head-notifications {
+  justify-content: center;
+}
+
+#head-greeting {
+  display: flex;
+  align-items: center;
+}
+
+#head-greeting img {
+  margin-right: 16px;
+}
+
+#head-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+#pfp img {
+  height: 60px;
+  width: auto;
+  border-radius: 50%;
+}
+
+#image img {
+  height: 80px;
+  width: auto;
+  border-radius: 50%;
+}
+
+/** Main **/
+main {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  background-color: rgba(211, 211, 211, 0.5);
+  grid-area: 2 / 2 / 3 / 3;
   height: 100%;
 }
