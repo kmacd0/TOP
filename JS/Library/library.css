@@ -2,3 +2,20 @@ th {
   background-color: gainsboro;
   padding: 10px;
 }
+
+#bookForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#read-container {
+  display: flex;
+  align-items: center;
+}
+
+#closeDialogBtn {
+  background-color: indianred;
+  color: white;
+  font-weight: bold;
+  padding: 4px;
+}
