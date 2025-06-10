@@ -4,11 +4,16 @@ const Gameboard = (() => {
   const getBoardState = () => [...board];
 
   const placeMark = (index, mark) => {
-    if (index >= 0 && index < 9 && board[index] === "") {
-      board[index] = mark;
-      return true;
+    if (index < 0 || index >= 9 || isNaN(index)) {
+      return { success: false, reason: "outOfBounds" };
     }
-    return false;
+
+    if (board[index] !== "") {
+      return { success: false, reason: "alreadyMarked" };
+    }
+
+    board[index] = mark;
+    return { success: true };
   };
 
   const resetBoard = () => {
@@ -89,21 +94,25 @@ const GameController = (() => {
     while (true) {
       Gameboard.displayBoard();
       const currentPlayer = players[currentPlayerIndex];
-      const playerMove = parseInt(
+      const playerMoveInput = parseInt(
         prompt(
           `${currentPlayer.name} (${currentPlayer.mark}, choose your placement (0-8):`
         )
       );
 
-      if (isNaN(playerMove) || playerMove < 0 || playerMove > 8) {
-        console.log("Invalid move, choose a tile 0-8.");
-        continue;
-      }
+      const playerMove = parseInt(playerMoveInput);
 
-      const placedMove = Gameboard.placeMark(playerMove, currentPlayer.mark);
+      const placementResult = Gameboard.placeMark(
+        playerMove,
+        currentPlayer.mark
+      );
 
-      if (!placedMove) {
-        console.log("Spot already filled, choose another.");
+      if (!placementResult.success) {
+        if (placementResult.reason === "outOfBounds") {
+          console.log("Invalid placement, choose a tile between 0 and 8.");
+        } else if (placementResult.reason === "alreadyMarked") {
+          console.log("Tile already marked. Choose another.");
+        }
         continue;
       }
 
